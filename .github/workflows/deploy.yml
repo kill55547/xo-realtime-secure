@@ -1,0 +1,35 @@
+# จัดทำโดย tawan_x2noban | TAWAN SHOP
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create config.js from Secret
+        run: |
+          if [ -z "${{ secrets.FIREBASE_CONFIG_JSON }}" ]; then
+            echo "❌ ERROR: FIREBASE_CONFIG_JSON secret is missing"
+            exit 1
+          fi
+          echo "// จัดทำโดย tawan_x2noban | TAWAN SHOP" > config.js
+          echo "window.FIREBASE_CONFIG = ${{ secrets.FIREBASE_CONFIG_JSON }};" >> config.js
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy
+        uses: actions/deploy-pages@v4

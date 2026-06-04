@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XO Real-time | TAWAN SHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ XO REAL-TIME ⚡</h1>
+        <p class="sub">จัดทำโดย tawan_x2noban | TAWAN SHOP</p>
+
+        <div id="lobbyScreen" class="screen active">
+            <div class="card">
+                <h2>🔥 เข้าร่วมหรือสร้างเกม</h2>
+                <div class="input-group">
+                    <input type="text" id="roomIdInput" placeholder="รหัส 4 ตัว" maxlength="4">
+                    <button id="joinRoomBtn">เข้าร่วม</button>
+                </div>
+                <button id="createRoomBtn" class="btn-primary">🎲 สร้างห้องใหม่</button>
+                <div id="lobbyError" class="error-msg"></div>
+            </div>
+        </div>
+
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div>ห้อง: <span id="roomIdDisplay">---</span></div>
+                <div>คุณคือ: <span id="playerSymbolDisplay">?</span></div>
+                <button id="copyRoomBtn" class="small-btn">📋 คัดลอกรหัส</button>
+                <button id="leaveGameBtn" class="small-btn danger">🚪 ออก</button>
+            </div>
+            <div id="gameStatus" class="status">กำลังเชื่อมต่อ...</div>
+            <div class="board" id="board"></div>
+            <button id="resetGameBtn" class="reset-btn">🔄 เริ่มเกมใหม่</button>
+            <div id="gameError" class="error-msg"></div>
+        </div>
+    </div>
+</body>
+</html>

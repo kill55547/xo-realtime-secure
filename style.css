@@ -1,0 +1,153 @@
+/* จัดทำโดย tawan_x2noban | TAWAN SHOP */
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1e2c, #2a2f3f);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+}
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #f0c45a, #f8a35e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 5px;
+}
+.sub {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.screen {
+    display: none;
+    animation: fade 0.3s ease;
+}
+.screen.active {
+    display: block;
+}
+.card {
+    background: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+}
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 2rem;
+    background: #2c2f3a;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+button {
+    background: #3a3f55;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover {
+    background: #4e5570;
+    transform: scale(0.98);
+}
+.btn-primary {
+    background: #f39c12;
+    color: #1e1e2a;
+    width: 100%;
+}
+.game-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 3rem;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    gap: 8px;
+}
+.small-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+}
+.danger {
+    background: #c0392b;
+}
+.status {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: #00000066;
+    border-radius: 2rem;
+    padding: 8px;
+    margin: 10px 0;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 2rem;
+}
+.cell {
+    aspect-ratio: 1;
+    background: #2c2f3a;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.cell.X { color: #4caf50; text-shadow: 0 0 8px #4caf50; }
+.cell.O { color: #f44336; text-shadow: 0 0 8px #f44336; }
+.cell.disabled { cursor: not-allowed; opacity: 0.7; }
+.reset-btn {
+    width: 100%;
+    background: #3498db;
+    margin-top: 10px;
+}
+.error-msg {
+    color: #ff7675;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@media (max-width: 480px) {
+    .cell { font-size: 2.2rem; }
+}
